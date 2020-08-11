@@ -6,10 +6,12 @@
 			"type": "string"
 		  },
 		  "created_at": {
-			"type": "string"
+			"type": "string",
+			"format": "date-time"
 		  },
 		  "updated_at": {
-			"type": "string"
+			"type": "string",
+			"format": "date-time"
 		  },
 		  "first_name": {
 			"type": "string"
@@ -21,7 +23,8 @@
 			"type": "string"
 		  },
 		  "start_date": {
-			"type": "string"
+			"type": "string",
+			"format": "date-time"
 		  },
 		  "email": {
 			"type": "string"
@@ -30,7 +33,7 @@
 			"type": "string"
 		  },
 		  "reports_to_id": {
-			"type": "number"
+			"type": "string"
 		  },
 		  "bio": {
 			"type": "string"
@@ -39,10 +42,10 @@
 			"type": "string"
 		  },
 		  "department": {
-			"type": "boolean"
+			"type": "string"
 		  },
 		  "location": {
-			"type": "boolean"
+			"type": "string"
 		  }
     }
 }
