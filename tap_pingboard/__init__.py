@@ -33,7 +33,7 @@ def discover():
     for stream_id, schema in raw_schemas.items():
         # TODO: populate any metadata and stream's key properties here..
         stream_metadata = [{"breadcrumb": [], "metadata": {"selected": True}}]
-        key_properties = []
+        key_properties = ["id"]
         streams.append(
             CatalogEntry(
                 tap_stream_id=stream_id,
@@ -41,7 +41,7 @@ def discover():
                 schema=schema,
                 key_properties=key_properties,
                 metadata=stream_metadata,
-                replication_key=None,
+                replication_key="updated_at",
                 is_view=None,
                 database=None,
                 table=None,
