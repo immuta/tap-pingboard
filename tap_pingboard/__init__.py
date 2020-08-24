@@ -19,9 +19,9 @@ def get_abs_path(path):
 def load_schemas():
     """ Load schemas from schemas folder """
     schemas = {}
-    for filename in os.listdir(get_abs_path('schemas')):
-        path = get_abs_path('schemas') + '/' + filename
-        file_raw = filename.replace('.json', '')
+    for filename in os.listdir(get_abs_path("schemas")):
+        path = get_abs_path("schemas") + "/" + filename
+        file_raw = filename.replace(".json", "")
         with open(path) as file:
             schemas[file_raw] = Schema.from_dict(json.load(file))
     return schemas
@@ -32,7 +32,7 @@ def discover():
     streams = []
     for stream_id, schema in raw_schemas.items():
         # TODO: populate any metadata and stream's key properties here..
-        stream_metadata = []
+        stream_metadata = [{"breadcrumb": [], "metadata": {"selected": True}}]
         key_properties = []
         streams.append(
             CatalogEntry(
@@ -75,13 +75,13 @@ def sync(config, state, catalog):
             "client_secret": config["client_secret"],
         },
     )
-    auth_token = json.loads(response.text)['access_token']
+    auth_token = json.loads(response.text)["access_token"]
 
     # Loop over selected streams in catalog
     for stream in catalog.get_selected_streams(state):
         LOGGER.info("Syncing stream:" + stream.tap_stream_id)
 
-        if stream.tap_stream_id == "pingboard_users_stream":
+        if stream.tap_stream_id == "users":
 
             bookmark_column = stream.replication_key
             is_sorted = True  # TODO: indicate whether data is sorted ascending on bookmark value
@@ -92,7 +92,7 @@ def sync(config, state, catalog):
                 key_properties=stream.key_properties,
             )
 
-            # curl command to retrieve data for testing 
+            # curl command to retrieve data for testing
             #  curl -H "Authorization: Bearer TOKEN_HERE" -output response.json https://app.pingboard.com/api/v2/users?include=departments%2Clocations%2Cgroups%2Cstatuses&page_size=3000
             # response schema:
             #    properties: {
@@ -103,7 +103,7 @@ def sync(config, state, catalog):
             #   }
             response = requests.get(
                 "https://app.pingboard.com/api/v2/users?include=departments%2Clocations%2Cgroups%2Cstatuses&page_size=3000",
-                headers={"Authorization":"Bearer "+auth_token}
+                headers={"Authorization": "Bearer " + auth_token},
             )
             response = json.loads(response.text)
 
@@ -135,7 +135,7 @@ def sync(config, state, catalog):
                     "bio": user["bio"],
                     "phone": user["phone"],
                     "department": None,
-                    "location": None
+                    "location": None,
                 }
 
                 if "departments" in user["links"]:
