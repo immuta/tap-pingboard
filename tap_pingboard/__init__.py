@@ -131,7 +131,7 @@ def sync(config, state, catalog):
                     "start_date": user["start_date"],
                     "email": user["email"],
                     "job_title": user["job_title"],
-                    "reports_to_id": str(user["reports_to_id"]),
+                    "reports_to_id": str(user.get("reports_to_id", "")),
                     "bio": user["bio"],
                     "phone": user["phone"],
                     "department": None,
