@@ -45,7 +45,12 @@
 			"type": "string"
 		  },
 		  "location": {
-			"type": "string"
-		  }
-    }
+            "type": "string"
+          },
+          "locationa": {
+            "type": "string"
+          }
+
+    },
+	"required": ["blah"]
 }
