@@ -47,10 +47,12 @@
 		  "location": {
             "type": "string"
           },
-          "locationa": {
-            "type": "string"
-          }
-
-    },
-	"required": ["blah"]
+		  "links": {
+			"type": "object",
+			"properties": {
+				"departments": { "type": "array", "items": { "type": "string" } },
+				"locations": { "type": "array", "items": { "type": "string" } }
+			}
+		  }
+    }
 }
