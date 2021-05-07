@@ -45,7 +45,14 @@
 			"type": "string"
 		  },
 		  "location": {
-			"type": "string"
+            "type": "string"
+          },
+		  "links": {
+			"type": "object",
+			"properties": {
+				"departments": { "type": "array", "items": { "type": "string" } },
+				"locations": { "type": "array", "items": { "type": "string" } }
+			}
 		  }
     }
 }
