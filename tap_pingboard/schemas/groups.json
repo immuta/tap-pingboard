@@ -16,6 +16,9 @@
 		  "name": {
 			"type": "string"
 		  },
+		  "type": {
+			"type": "string"
+		  },
 		  "memberships_count": {
 			"type": "string"
 		  }

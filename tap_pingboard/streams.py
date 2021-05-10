@@ -27,7 +27,6 @@ class PingboardStream(RESTStream):
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
 
-        params["include"] = ",".join(["departments", "locations"])
         params["page_size"] = "3000"
 
         return params
@@ -37,9 +36,7 @@ class PingboardStream(RESTStream):
         resp_json = response.json()
 
         if self.response_result_key:
-            for key in self.response_result_key.split("."):
-                if isinstance(resp_json, dict) and key in resp_json:
-                    resp_json = resp_json[key]
+            resp_json = resp_json[self.response_result_key]
 
         if isinstance(resp_json, dict):
             yield resp_json
@@ -65,25 +62,13 @@ class UsersStream(PingboardStream):
     schema_filepath = SCHEMAS_DIR / "users.json"
 
 
-class DepartmentsStream(PingboardStream):
-    """Departments stream class."""
+class GroupsStream(PingboardStream):
+    """Groups stream class."""
 
-    name = "departments"
-    path = "/users"
+    name = "groups"
+    path = "/groups"
     primary_keys = ["id"]
     replication_key = "updated_at"
-    response_result_key = "linked.departments"
+    response_result_key = "groups"
 
-    schema_filepath = SCHEMAS_DIR / "departments.json"
-
-
-class LocationsStream(PingboardStream):
-    """Locations stream class."""
-
-    name = "locations"
-    path = "/users"
-    primary_keys = ["id"]
-    replication_key = "updated_at"
-    response_result_key = "linked.locations"
-
-    schema_filepath = SCHEMAS_DIR / "locations.json"
+    schema_filepath = SCHEMAS_DIR / "groups.json"
