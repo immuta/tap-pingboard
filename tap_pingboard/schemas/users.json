@@ -1,48 +1,48 @@
 {
-    "type": ["null", "object"],
-    "additionalProperties": false,
-    "properties": {
-		"id": {
-			"type": "string"
-		  },
-		  "created_at": {
-			"type": "string",
-			"format": "date-time"
-		  },
-		  "updated_at": {
-			"type": "string",
-			"format": "date-time"
-		  },
-		  "first_name": {
-			"type": "string"
-		  },
-		  "last_name": {
-			"type": "string"
-		  },
-		  "nickname": {
-			"type": "string"
-		  },
-		  "start_date": {
-			"type": "string",
-			"format": "date-time"
-		  },
-		  "email": {
-			"type": "string"
-		  },
-		  "job_title": {
-			"type": "string"
-		  },
-		  "reports_to_id": {
-			"type": "string"
-		  },
-		  "bio": {
-			"type": "string"
-		  },
-		  "phone": {
-			"type": "string"
-		  },
-		  "links": {
-			"type": "object"
-		  }
+  "type": ["null", "object"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+      },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "email": {
+      "type": "string"
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "reports_to_id": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "links": {
+      "type": "object"
     }
+  }
 }

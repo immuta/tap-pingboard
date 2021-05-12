@@ -72,3 +72,14 @@ class GroupsStream(PingboardStream):
     response_result_key = "groups"
 
     schema_filepath = SCHEMAS_DIR / "groups.json"
+
+
+class CustomFieldsStream(PingboardStream):
+    """Custom Fields stream class."""
+
+    name = "custom fields"
+    path = "/custom_fields"
+    primary_keys = ["id"]
+    response_result_key = "custom_fields"
+
+    schema_filepath = SCHEMAS_DIR / "custom_fields.json"

@@ -8,11 +8,13 @@ from singer_sdk import typing as th  # JSON schema typing helpers
 from tap_pingboard.streams import (
     UsersStream,
     GroupsStream,
+    CustomFieldsStream
 )
 
 STREAM_TYPES = [
     UsersStream,
     GroupsStream,
+    CustomFieldsStream
 ]
 
 
