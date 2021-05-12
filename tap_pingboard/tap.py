@@ -7,14 +7,14 @@ from singer_sdk import typing as th  # JSON schema typing helpers
 
 from tap_pingboard.streams import (
     UsersStream,
-    DepartmentsStream,
-    LocationsStream,
+    GroupsStream,
+    CustomFieldsStream
 )
 
 STREAM_TYPES = [
     UsersStream,
-    DepartmentsStream,
-    LocationsStream,
+    GroupsStream,
+    CustomFieldsStream
 ]
 
 
