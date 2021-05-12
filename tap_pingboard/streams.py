@@ -77,7 +77,7 @@ class GroupsStream(PingboardStream):
 class CustomFieldsStream(PingboardStream):
     """Custom Fields stream class."""
 
-    name = "custom fields"
+    name = "custom_fields"
     path = "/custom_fields"
     primary_keys = ["id"]
     response_result_key = "custom_fields"
