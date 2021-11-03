@@ -1,14 +1,14 @@
 [tool.poetry]
 name = "tap-pingboard"
-version = "0.2.0"
+version = "0.2.1"
 description = "`tap-pingboard` is Singer tap for Pingboard, built with the Singer SDK."
 authors = ["Zane Patten"]
 license = "Apache 2.0"
 
 [tool.poetry.dependencies]
-python = "<3.9,>=3.6"
+python = "^3.7,<3.10"
 requests = "^2.25.1"
-singer-sdk = "^0.1.5"
+singer-sdk = "^0.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1.2"
